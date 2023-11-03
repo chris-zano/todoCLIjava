@@ -1,18 +1,9 @@
 package com.example.java;
 
-/**
- * <p>This serves as the base class. With properties
- * other classes will inherit from</p>
- */
-public class Base {
-    public int id;
-    public String dfDateCreated;
-    public String dfTimeCreated;
-    public String dfExpiryDate;
-    public String dfExpiryTime;
+public class Create extends Base{
 
-    public Base() {
-        System.out.println("Instance created successfully!!!");
+    public Create(){
+        super();
     }
 
     public static void main(String[] args) {
@@ -27,4 +18,11 @@ public class Base {
             System.out.println("No arguments were passed with this program");
         }
     }
+
+    public void display() {
+        System.out.printf("The id of the task is: %d%n", this.id);
+        System.out.printf("The date the task was created is: %s%n", this.dfDateCreated);
+        System.out.printf("The time the task was created is: %s%n", this.dfTimeCreated);
+    }
 }
+
