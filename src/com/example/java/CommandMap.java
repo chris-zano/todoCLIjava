@@ -8,7 +8,6 @@ public class CommandMap {
             switch (args[0]) {
                 case "add":
                     Add newTask = new Add(args);
-//                    newTask.DisplayTaskConfig();
                     StringBuilder task =  newTask.StructureTaskLanguage();
                     newTask.DisplayTaskConfig(task);
                     int isSuccess = newTask.SaveToFile(task);
@@ -32,9 +31,10 @@ public class CommandMap {
                     }
                     break;
                 case "list":
-                    System.out.println("list");
-                    for (String arg : args) {
-                        System.out.println(arg);
+                    Task_List taskList = new Task_List(args);
+                    String[] tasks = taskList.ListTasks();
+                    for (String todo: tasks) {
+                        System.out.println(todo);
                     }
                     break;
                 default:
