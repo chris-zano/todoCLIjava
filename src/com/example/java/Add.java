@@ -10,8 +10,6 @@ public class Add {
     private String dueBy;
     private String task;
 
-    private static final String TASK_FILE_PATH = "files/tasks.txt";
-    private static final String UNIQUE_ID_PATH = "files/uid.txt";
     public Add(String[] args) {
         if (args.length > 0 && args[0].equals("add") ){
             this.command = args[0];
@@ -73,7 +71,7 @@ public class Add {
 
     public int SaveToFile(StringBuilder task) {
         try(
-                FileWriter fWriter = new FileWriter(TASK_FILE_PATH, true);
+                FileWriter fWriter = new FileWriter(Main.TASK_FILE_PATH, true);
                 BufferedWriter bfWriter = new BufferedWriter(fWriter)
                 ){
             bfWriter.append(task);
@@ -88,7 +86,7 @@ public class Add {
     private static int GetCurrentUniqueIndex() {
         int uniqueIndex = 0;
         try(
-                FileReader fReader = new FileReader(UNIQUE_ID_PATH);
+                FileReader fReader = new FileReader(Main.UNIQUE_ID_PATH);
                 BufferedReader bReader = new BufferedReader(fReader)
                 ){
             while (true) {
@@ -109,7 +107,7 @@ public class Add {
         }
 
         try(
-                FileWriter fWriter = new FileWriter(UNIQUE_ID_PATH)
+                FileWriter fWriter = new FileWriter(Main.UNIQUE_ID_PATH)
                 ){
             fWriter.write(String.valueOf(uniqueIndex));
         }catch(IOException e) {

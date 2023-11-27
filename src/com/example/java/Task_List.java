@@ -6,46 +6,47 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Main class for handling list operations
+ */
+
 public class Task_List {
 
     private int upperLimit;
     private int lowerLimit;
     private String indexOf;
-    private static final String TASK_FILE_PATH = "files/tasks.txt";
     
     public Task_List(String[] args) {
         if (args[0].equals("list") && args.length > 1) {
             for (int i = 1; i < args.length; i++) {
                 if (args[i].equals("--from")) {
-                    this.upperLimit = Integer.parseInt(args[i+1]);
+                    this.upperLimit = Integer.parseInt(args[i+1]); // set upper limit
                 }
                 if (args[i].equals("--to")) {
-                    this.lowerLimit = Integer.parseInt(args[i+1]);
+                    this.lowerLimit = Integer.parseInt(args[i+1]); // set lower limit
                 }
                 if (args[i].equals("--indexOf")) {
                     this.indexOf = args[i+1];
-                }
-                if (args[1].equals("--all")) {
-                    this.upperLimit = 0;
-                    this.lowerLimit = 0;
-                    this.indexOf = "all";
-                    break;
                 }
             }
         }
         else {
             this.upperLimit = 0;
             this.lowerLimit = 0;
-            this.indexOf = "all";
         }
 
     }
 
+    /**
+     * List tasks , accepts flags
+     * <p>flags control which tasks to print</p>
+     * @return - a string array of tasks
+     */
     public  String[] ListTasks() {
         String[] tasksArray = new String[0];
         if (this.upperLimit == 0) {
             try(
-                    FileReader fReader = new FileReader(TASK_FILE_PATH);
+                    FileReader fReader = new FileReader(Main.TASK_FILE_PATH);
                     BufferedReader bReader = new BufferedReader(fReader)
             ){
                 List<String> tasks = new ArrayList<>();
@@ -64,7 +65,7 @@ public class Task_List {
         if (this.upperLimit > 0 ) {
             if (this.lowerLimit == 0) {
                 try(
-                        FileReader fReader = new FileReader(TASK_FILE_PATH);
+                        FileReader fReader = new FileReader(Main.TASK_FILE_PATH);
                         BufferedReader bReader = new BufferedReader(fReader)
                 ){
                     List<String> tasks = new ArrayList<>();
@@ -92,7 +93,7 @@ public class Task_List {
             }
             else if (this.lowerLimit > 0) {
                 try(
-                        FileReader fReader = new FileReader(TASK_FILE_PATH);
+                        FileReader fReader = new FileReader(Main.TASK_FILE_PATH);
                         BufferedReader bReader = new BufferedReader(fReader)
                 ){
                     List<String> tasks = new ArrayList<>();
@@ -123,27 +124,9 @@ public class Task_List {
                 }
             }
         }
-        if (this.indexOf.equals("all")){
-            try(
-                    FileReader fReader = new FileReader(TASK_FILE_PATH);
-                    BufferedReader bReader = new BufferedReader(fReader)
-            ){
-                List<String> tasks = new ArrayList<>();
-
-                String lineFeed;
-                while((lineFeed = bReader.readLine()) != null) {
-                    tasks.add(lineFeed);
-                }
-
-                tasksArray = tasks.toArray(new String[0]);
-
-            }catch(IOException e) {
-                e.printStackTrace();
-            }
-        }
         else {
             try(
-                    FileReader fReader = new FileReader(TASK_FILE_PATH);
+                    FileReader fReader = new FileReader(Main.TASK_FILE_PATH);
                     BufferedReader bReader = new BufferedReader(fReader)
             ){
                 List<String> tasks = new ArrayList<>();

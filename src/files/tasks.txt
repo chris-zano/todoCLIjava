@@ -1,4 +1,0 @@
-ID:26 {Fix bugs with Add commandMap} which started on {Monday} and is due on {Monday; 10.00pm}
-ID:27 {Implement view counter with viewhub} which started on {Monday} and is due on {Wednesday; 3:00am}
-ID:28 {Add comment section styling on viewhub} which started on {Monday} and is due on {Wednesday; 3:00am}
-ID:29 {Gym - Leg day} which started on {Thursday} and is due on {Thursday; 8:pm}
