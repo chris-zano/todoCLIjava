@@ -28,11 +28,15 @@ public class Task_List {
                 if (args[i].equals("--indexOf")) {
                     this.indexOf = args[i+1];
                 }
+                if (args[i].equals("--all")){
+                    this.indexOf = "ID";
+                }
             }
         }
         else {
             this.upperLimit = 0;
             this.lowerLimit = 0;
+            this.indexOf = "ID";
         }
 
     }

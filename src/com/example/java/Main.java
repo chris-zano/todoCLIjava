@@ -105,15 +105,9 @@ public class Main {
                     System.out.println("File save Failed!");
                 }
                 break;
-            case "check":
-                System.out.println("check");
-                for (String arg : argv) {
-                    System.out.println(arg);
-                }
-                break;
-            case "delete":
+            case "check", "delete":
                 if (argv.length != 2) {
-                    System.out.println("Usage < delete \"ID:***\">");
+                    System.out.println("Usage < check / delete \"ID:***\">");
                 }
                 else {
                     if (argv[1].contains("ID:")) {
@@ -121,11 +115,11 @@ public class Main {
                     } else if (argv[1].equals("--all")) {
                         DeleteTask.deleteTask("all");
                     } else {
-                        System.out.println("Usage < delete \"ID:***\">");
+                        System.out.println("Usage < check / delete  \"ID:***\">");
                     }
                 }
-
                 break;
+
             case "list":
                 Task_List taskList = new Task_List(argv);
                 String[] tasks = taskList.ListTasks();
