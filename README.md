@@ -1,4 +1,0 @@
-# todoCLIJava
-
-## Author
-* Christian Solomon
