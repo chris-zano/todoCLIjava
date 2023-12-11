@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 ID:1 {Eat lunch} which started on {Monday} and is due on {Monday;3:00pm}
 ID:2 {Eat dinner} which started on {Monday} and is due on {Monday;6:00pm}
-=======
 ID:92 {Implement help module} which started on {Friday} and is due on {Friday;10pm}
-ID:94 {Do my laundry} which started on {Saturday} and is due on {Saturday; 10:30am}
->>>>>>> origin/main
+ID:101 {Fix bug} which started on {Monday} and is due on {Monday;3:00pm}
+ID:102 {Fix bug} which started on {Monday} and is due on {Monday;3:00pm}
+ID:103 {Fix bug} which started on {Monday} and is due on {Monday;3:00pm}

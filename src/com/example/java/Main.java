@@ -26,22 +26,20 @@ public class Main {
 
     /**
      * this is the main calling method of the program
+     *
      * @param args - arguments parsed to the program (commands / file)
      */
     public static void main(String[] args) {
         if (args.length == 1) {
-            File file =  new File(args[0]);
+            File file = new File(args[0]);
 
             //check if argument is a file
             if (file.isFile()) {
                 executeCommandsFromFile(file); // execute commands in the file
-            }
-            else {
+            } else {
                 System.out.printf("%s is not a file", args[0]); // error message
             }
-        }
-
-        else if (args.length > 1) mapCommands(args); // commands are parsed as arguments instead
+        } else if (args.length > 1) mapCommands(args); // commands are parsed as arguments instead
 
         else {
             //interactive mode
@@ -54,8 +52,7 @@ public class Main {
 
                 if ("exit".equalsIgnoreCase(line.trim())) {
                     break;
-                }
-                else {
+                } else {
                     arguments = parseArguments(line);
                     mapCommands(arguments);
                 }
@@ -71,45 +68,45 @@ public class Main {
      * Each line in the file is a command for the program
      * This command is parsed to the program
      * The fileScanner pointer then moves to the next line and repeats the process
+     *
      * @param file - the file containing a list of valid commands
      */
     private static void executeCommandsFromFile(File file) {
-        try(Scanner fileScanner = new Scanner(file)) {
-            while(fileScanner.hasNextLine()) {
+        try (Scanner fileScanner = new Scanner(file)) {
+            while (fileScanner.hasNextLine()) {
                 String line = fileScanner.nextLine().trim();
                 if (!line.isEmpty()) {
                     String[] arguments = parseArguments(line);
                     mapCommands(arguments);
                 }
             }
-        }catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     /**
      * The method maps the first command to its respective function
+     *
      * @param argv - a tokenized array of string arguments
      */
     private static void mapCommands(String[] argv) {
         switch (argv[0]) {
             case "add":
                 Add newTask = new Add(argv);
-                StringBuilder task =  newTask.StructureTaskLanguage();
+                StringBuilder task = newTask.StructureTaskLanguage();
                 newTask.DisplayTaskConfig(task);
                 int isSuccess = newTask.SaveToFile(task);
                 if (isSuccess == 1) {
                     System.out.println("File saved Successfully!!");
-                }
-                else {
+                } else {
                     System.out.println("File save Failed!");
                 }
                 break;
             case "check", "delete":
                 if (argv.length != 2) {
                     System.out.println("Usage < check / delete \"ID:***\">");
-                }
-                else {
+                } else {
                     if (argv[1].contains("ID:")) {
                         DeleteTask.deleteTask(argv[1]);
                     } else if (argv[1].equals("--all")) {
@@ -123,7 +120,7 @@ public class Main {
             case "list":
                 Task_List taskList = new Task_List(argv);
                 String[] tasks = taskList.ListTasks();
-                for (String todo: tasks) {
+                for (String todo : tasks) {
                     System.out.println(todo);
                 }
                 break;
@@ -134,6 +131,7 @@ public class Main {
 
     /**
      * This method tokenizes a line feed from scanner.nextLine()
+     *
      * @param line - line feed from scanner.nextLine()
      * @return - tokenized array of strings
      */
@@ -157,9 +155,4 @@ public class Main {
         // Convert the list to an array
         return argumentsList.toArray(new String[0]);
     }
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/main

@@ -15,11 +15,7 @@ public class Task_List {
     private int upperLimit;
     private int lowerLimit;
     private String indexOf;
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> origin/main
     public Task_List(String[] args) {
         if (args[0].equals("list") && args.length > 1) {
             for (int i = 1; i < args.length; i++) {
@@ -93,11 +89,11 @@ public class Task_List {
                         }
                     }
 
-<<<<<<< HEAD
+
                     tasksArray = tasks.toArray(new String[0]);
-=======
+
                 tasksArray = tasks.toArray(new String[0]);
->>>>>>> origin/main
+
 
                 }catch(IOException e) {
                     e.printStackTrace();
@@ -160,8 +156,6 @@ public class Task_List {
         }
         return tasksArray;
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> origin/main
+
