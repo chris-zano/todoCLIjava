@@ -73,7 +73,11 @@ public class Add {
         try(
                 FileWriter fWriter = new FileWriter(Main.TASK_FILE_PATH, true);
                 BufferedWriter bfWriter = new BufferedWriter(fWriter)
+<<<<<<< HEAD
         ){
+=======
+                ){
+>>>>>>> origin/main
             bfWriter.append(task);
         }catch(IOException e) {
             e.printStackTrace();
@@ -88,7 +92,11 @@ public class Add {
         try(
                 FileReader fReader = new FileReader(Main.UNIQUE_ID_PATH);
                 BufferedReader bReader = new BufferedReader(fReader)
+<<<<<<< HEAD
         ){
+=======
+                ){
+>>>>>>> origin/main
             while (true) {
                 String lineFeed = bReader.readLine();
 
@@ -108,7 +116,11 @@ public class Add {
 
         try(
                 FileWriter fWriter = new FileWriter(Main.UNIQUE_ID_PATH)
+<<<<<<< HEAD
         ){
+=======
+                ){
+>>>>>>> origin/main
             fWriter.write(String.valueOf(uniqueIndex));
         }catch(IOException e) {
             e.printStackTrace();
@@ -116,4 +128,8 @@ public class Add {
 
         return uniqueIndex;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main

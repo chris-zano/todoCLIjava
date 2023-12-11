@@ -158,4 +158,8 @@ public class Main {
         return argumentsList.toArray(new String[0]);
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main
